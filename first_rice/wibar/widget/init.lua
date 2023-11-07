@@ -1,0 +1,8 @@
+require("first_rice/wibar/widget/battery_widget")
+require("first_rice/wibar/widget/usage")
+require("first_rice/wibar/widget/internet")
+require("first_rice/wibar/widget/bluetooth")
+require("first_rice/wibar/widget/sound")
+require("first_rice/wibar/widget/separator")
+require("first_rice/wibar/widget/calendar_widget")
+require("first_rice/wibar/widget/brightness")
