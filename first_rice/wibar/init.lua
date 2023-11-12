@@ -2,6 +2,7 @@ local awful = require("awful")
 local gears = require("gears")
 local wibox = require("wibox")
 local beautiful = require("beautiful")
+local dpi = beautiful.xresources.apply_dpi
 
 -- Call for each widget created in the dedicated folder
 require("first_rice/wibar/widget")
@@ -83,21 +84,31 @@ awful.screen.connect_for_each_screen(function(s)
     }
 
     -- Create a tasklist widget
-    s.mytasklist = awful.widget.tasklist {
+    --[[s.mytasklist = awful.widget.tasklist {
         screen  = s,
         filter  = awful.widget.tasklist.filter.currenttags,
         buttons = tasklist_buttons
-    }
+    }]]-- 
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s, height = 25})
+    s.mywibox = awful.wibar({ 
+		position = "top", 
+		border_width = 5,
+		screen = s,
+		bg = "#00000000",
+		height = 25,
+		shape = function(cr, width, height)
+			gears.shape.rounded_rect(cr, width, height, 15)
+		end,
+	})
+
 
     -- Add widgets to the wibox
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
-            mylauncher,
+            --mylauncher,
             s.mytaglist,
             s.mypromptbox,
         },
