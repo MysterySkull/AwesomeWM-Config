@@ -4,48 +4,13 @@ local wibox = require("wibox")
 local beautiful = require("beautiful")
 local dpi = beautiful.xresources.apply_dpi
 
+require("first_rice/wibar/widget/taglist")
+
 -- Call for each widget created in the dedicated folder
 require("first_rice/wibar/widget")
 
 -- Create a wibox for each screen and add it
-local taglist_buttons = gears.table.join(
-                    awful.button({ }, 1, function(t) t:view_only() end),
-                    awful.button({ modkey }, 1, function(t)
-                                              if client.focus then
-                                                  client.focus:move_to_tag(t)
-                                              end
-                                          end),
-                    awful.button({ }, 3, awful.tag.viewtoggle),
-                    awful.button({ modkey }, 3, function(t)
-                                              if client.focus then
-                                                  client.focus:toggle_tag(t)
-                                              end
-                                          end),
-                    awful.button({ }, 4, function(t) awful.tag.viewnext(t.screen) end),
-                    awful.button({ }, 5, function(t) awful.tag.viewprev(t.screen) end)
-                )
 
-local tasklist_buttons = gears.table.join(
-                     awful.button({ }, 1, function (c)
-                                              if c == client.focus then
-                                                  c.minimized = true
-                                              else
-                                                  c:emit_signal(
-                                                      "request::activate",
-                                                      "tasklist",
-                                                      {raise = true}
-                                                  )
-                                              end
-                                          end),
-                     awful.button({ }, 3, function()
-                                              awful.menu.client_list({ theme = { width = 250 } })
-                                          end),
-                     awful.button({ }, 4, function ()
-                                              awful.client.focus.byidx(1)
-                                          end),
-                     awful.button({ }, 5, function ()
-                                              awful.client.focus.byidx(-1)
-                                          end))
 
 local function set_wallpaper(s)
     -- Wallpaper
@@ -59,6 +24,30 @@ local function set_wallpaper(s)
     end
 end
 
+--mytaglist_test = buildTaskList()
+
+    local tasklist_buttons = gears.table.join(
+        awful.button({ }, 1, function (c)
+            if c == client.focus then
+                c.minimized = true
+            else
+                c:emit_signal(
+                    "request::activate",
+                    "tasklist",
+                    {raise = true}
+                )
+            end
+        end),
+        awful.button({ }, 3, function()
+            awful.menu.client_list({ theme = { width = 250 } })
+        end),
+	awful.button({ }, 4, function ()
+            awful.client.focus.byidx(1)
+        end),
+        awful.button({ }, 5, function ()
+                awful.client.focus.byidx(-1)
+        end)
+    )
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 screen.connect_signal("property::geometry", set_wallpaper)
 
@@ -77,18 +66,19 @@ awful.screen.connect_for_each_screen(function(s)
     s.mylayoutbox:buttons(gears.table.join(
                            awful.button({ }, 1, function () awful.layout.inc( 1) end)))
     -- Create a taglist widget
-    s.mytaglist = awful.widget.taglist {
+    --mytaglist_test = buildTaskList(s)
+    --[[s.mytaglist = awful.widget.taglist {
         screen  = s,
         filter  = awful.widget.taglist.filter.all,
         buttons = taglist_buttons
-    }
+    }]]--
 
     -- Create a tasklist widget
-    --[[s.mytasklist = awful.widget.tasklist {
+    s.mytasklist = awful.widget.tasklist {
         screen  = s,
         filter  = awful.widget.tasklist.filter.currenttags,
         buttons = tasklist_buttons
-    }]]-- 
+    }
 
     -- Create the wibox
     s.mywibox = awful.wibar({ 
@@ -108,8 +98,9 @@ awful.screen.connect_for_each_screen(function(s)
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
-            --mylauncher,
-            s.mytaglist,
+            mylauncher,
+            s.taglist,
+	    --mytaglist_test,
             s.mypromptbox,
         },
         s.mytasklist, -- Middle widget
