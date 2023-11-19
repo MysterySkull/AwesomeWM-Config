@@ -2,7 +2,7 @@ local wibox = require("wibox")
 local awful = require("awful")
 local gears = require("gears")
 
-require("first_rice/theme/theme")
+require("initial_rice/theme/theme")
 
 -- Battery icon and text box declaration
 local sound_widget = {}

@@ -1,4 +1,4 @@
-local widget_addr = "first_rice/wibar/widget/"
+local widget_addr = "initial_rice/wibar/widget/"
 local widget_name = "battery_widget"
 
 local widget_loc = widget_addr .. widget_name

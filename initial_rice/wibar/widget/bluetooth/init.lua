@@ -1,7 +1,7 @@
 local wibox = require("wibox")
 local awful = require("awful")
 
-require("first_rice/theme/theme")
+require("initial_rice/theme/theme")
 
 -- Bluetooth icon and text box declaration
 local bluetooth_widget = {}

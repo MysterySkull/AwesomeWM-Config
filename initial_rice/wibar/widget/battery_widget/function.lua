@@ -1,4 +1,4 @@
-require("first_rice/theme/theme")
+require("initial_rice/theme/theme")
 local awful = require("awful")
 
 

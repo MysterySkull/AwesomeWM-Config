@@ -4,7 +4,7 @@ local wibox = require("wibox")
 local beautiful = require("beautiful")
 
 -- Call for each widget created in the dedicated folder
-require("first_rice/wibar/widget")
+require("initial_rice/wibar/widget")
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(

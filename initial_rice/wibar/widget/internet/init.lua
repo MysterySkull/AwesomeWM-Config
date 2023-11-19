@@ -1,7 +1,7 @@
 local wibox = require("wibox")
 local awful = require("awful")
 
-require("first_rice/theme/theme")
+require("initial_rice/theme/theme")
 
 -- Internet Wifi/Ethernet icon and textbox declaration
 local internet_widget = {}

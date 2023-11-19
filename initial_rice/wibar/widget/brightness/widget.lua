@@ -1,6 +1,6 @@
 local wibox = require("wibox")
 
-require ("first_rice/theme/theme")
+require ("initial_rice/theme/theme")
 
 local widget_width = 55
 

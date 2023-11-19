@@ -11,7 +11,7 @@ require("awful.autofocus")
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init("/home/guillaume/.config/awesome/first_rice/theme/theme.lua")
+beautiful.init("/home/guillaume/.config/awesome/initial_rice/theme/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "alacritty"

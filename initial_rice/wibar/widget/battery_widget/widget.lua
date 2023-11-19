@@ -2,7 +2,7 @@ local wibox = require("wibox")
 
 local FORCED_WIDTH = 50
 
-require("first_rice/theme/theme")
+require("initial_rice/theme/theme")
 
 local spacer = wibox.widget {
 	text = " ",
