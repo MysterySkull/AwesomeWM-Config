@@ -2,7 +2,7 @@ local wibox = require("wibox")
 local awful = require("awful")
 local gears = require("gears")
 
-require("first_rice/theme/theme")
+require("wip_rice/theme/theme")
 
 -- Battery icon and text box declaration
 local sound_widget = {}
@@ -56,7 +56,7 @@ function change_icon(status, percent)
 	end
 end
 
-awful.widget.watch(".config/awesome/first_rice/wibar/widget/sound/sound_status.sh",0.05,
+awful.widget.watch(".config/awesome/wip_rice/wibar/widget/sound/sound_status.sh",0.05,
 	function(widget, stdout)
 		--local space_position = 
 		local percent = string.sub(stdout,4)

@@ -1,7 +1,7 @@
 local gears = require("gears")
 local awful = require("awful")
 local hotkeys_popup = require("awful.hotkeys_popup")
-local xrandr = require("first_rice/xrandr")
+local xrandr = require("wip_rice/xrandr")
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(

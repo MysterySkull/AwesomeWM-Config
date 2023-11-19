@@ -7,7 +7,7 @@ local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
 
 local gfs = require("gears.filesystem")
-local themes_path = "/home/guillaume/.config/awesome/first_rice/theme/"
+local themes_path = "/home/guillaume/.config/awesome/wip_rice/theme/"
 
 color = {}
 

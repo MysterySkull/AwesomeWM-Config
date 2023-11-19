@@ -1,7 +1,7 @@
 local awful = require("awful")
 local wibox = require("wibox")
 
-require("first_rice/theme/theme")
+require("wip_rice/theme/theme")
 
 local spacer = wibox.widget{
 	text = " ",
@@ -85,10 +85,10 @@ end
 
 function get_used_cpu_percent(string_cpu_input)
 	local space_index = string.find(string_cpu_input," ")
-	local first_cpu_usage = string.sub(string_cpu_input,1,space_index-1)+0
+	local wip_cpu_usage = string.sub(string_cpu_input,1,space_index-1)+0
 	local second_cpu_usage = string.sub(string_cpu_input,space_index+1)+0
 	
-	local total_cpu_usage = first_cpu_usage + second_cpu_usage
+	local total_cpu_usage = wip_cpu_usage + second_cpu_usage
 
 	return total_cpu_usage .. "0%"
 end

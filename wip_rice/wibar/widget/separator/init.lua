@@ -1,7 +1,7 @@
 local wibox = require("wibox")
 local awful = require("awful")
 
-require("first_rice/theme/theme")
+require("wip_rice/theme/theme")
 
 separator_widget = wibox.widget{
 	text = " | ",

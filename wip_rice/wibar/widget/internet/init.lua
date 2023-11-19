@@ -1,7 +1,7 @@
 local wibox = require("wibox")
 local awful = require("awful")
 
-require("first_rice/theme/theme")
+require("wip_rice/theme/theme")
 
 -- Internet Wifi/Ethernet icon and textbox declaration
 local internet_widget = {}
@@ -58,7 +58,7 @@ function set_connectivity_icon(connectivity_status_input)
 	end
 end
 
-awful.widget.watch(".config/awesome/first_rice/wibar/widget/internet/internet.sh", 1,
+awful.widget.watch(".config/awesome/wip_rice/wibar/widget/internet/internet.sh", 1,
 	function(widget,stdout)
 		local connectivity_status = get_connectivity_status(stdout)
 		local connectivity_name = get_connectivity_name(stdout)

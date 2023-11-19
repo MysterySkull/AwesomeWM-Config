@@ -4,10 +4,10 @@ local wibox = require("wibox")
 local beautiful = require("beautiful")
 local dpi = beautiful.xresources.apply_dpi
 
-require("first_rice/wibar/widget/taglist")
+require("wip_rice/wibar/widget/taglist")
 
 -- Call for each widget created in the dedicated folder
-require("first_rice/wibar/widget")
+require("wip_rice/wibar/widget")
 
 -- Create a wibox for each screen and add it
 
