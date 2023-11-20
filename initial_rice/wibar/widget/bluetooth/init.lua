@@ -43,7 +43,7 @@ function change_bt_icon(status)
 	end
 end
 
-awful.widget.watch(".config/awesome/first_rice/wibar/widget/bluetooth/bluetooth_status.sh",1,
+awful.widget.watch(".config/awesome/initial_rice/wibar/widget/bluetooth/bluetooth_status.sh",1,
 	function(widget, stdout)
 		test = string.sub(stdout,1,string.len(stdout)-1)
 		change_bt_icon(test)

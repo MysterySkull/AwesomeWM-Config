@@ -56,7 +56,7 @@ function change_icon(status, percent)
 	end
 end
 
-awful.widget.watch(".config/awesome/first_rice/wibar/widget/sound/sound_status.sh",0.05,
+awful.widget.watch(".config/awesome/initial_rice/wibar/widget/sound/sound_status.sh",0.05,
 	function(widget, stdout)
 		--local space_position = 
 		local percent = string.sub(stdout,4)

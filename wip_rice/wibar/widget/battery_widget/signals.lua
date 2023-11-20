@@ -1,4 +1,4 @@
-require ("theme/theme")
+require ("wip_rice/theme/theme")
 
 -- Widget link with mouse action
 battery_widget_container:connect_signal('mouse::enter', function()

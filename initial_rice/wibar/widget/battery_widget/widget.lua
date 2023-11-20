@@ -1,4 +1,5 @@
 local wibox = require("wibox")
+local awful = require("awful")
 
 local FORCED_WIDTH = 50
 
