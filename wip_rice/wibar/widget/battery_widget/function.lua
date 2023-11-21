@@ -7,8 +7,8 @@ function set_battery_data(string_input)
 
 	local separator_position = string.find(string_input, " ")
     local string_lengh = string.len(string_input)
-	local percent = string.sub(string_input, separator_position+1)
-	local status = string.sub(string_input, 1, separator_position-1)
+	local percent = string.sub(string_input, separator_position+1)+0
+	local status = string.sub(string_input, 1, separator_position-1)+0
 
 	battery_data.percent = percent
 	battery_data.status = status
