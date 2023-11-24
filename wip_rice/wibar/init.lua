@@ -98,12 +98,7 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
             --mylauncher,
-            {
-                s.taglist,
-                shape = gears.shape.rounded_bar,
-                bg = "#000000",
-                widget = wibox.widget.background,
-            },
+            s.taglist,
             --mytaglist_test,
             s.mypromptbox,
         },

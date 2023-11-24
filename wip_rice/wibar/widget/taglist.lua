@@ -24,11 +24,11 @@ local taglist_buttons = gears.table.join(
 )
 
 local empty_tag = gears.surface.load_uncached(".config/awesome/wip_rice/theme/taglist_icons/empty_tag.svg")
-local empty_tag_selected = gears.color.recolor_image(empty_tag, "#FFFFFF")
-local empty_tag_not_selected = gears.color.recolor_image(empty_tag, "#777777")
+local empty_tag_selected = gears.color.recolor_image(empty_tag, "#FFFFFFFF")
+local empty_tag_not_selected = gears.color.recolor_image(empty_tag, "#FFFFFF66")
 local not_empty_tag = gears.surface.load_uncached(".config/awesome/wip_rice/theme/taglist_icons/not_empty_tag.svg")
-local not_empty_tag_selected = gears.color.recolor_image(not_empty_tag, "#FFFFFF")
-local not_empty_tag_not_selected = gears.color.recolor_image(not_empty_tag, "#777777")
+local not_empty_tag_selected = gears.color.recolor_image(not_empty_tag, "#FFFFFFFF")
+local not_empty_tag_not_selected = gears.color.recolor_image(not_empty_tag, "#FFFFFF66")
 
 local function init_taglist_icon(self, c3)
     if c3.selected then        
@@ -47,26 +47,37 @@ local function init_taglist_icon(self, c3)
 end
 
 awful.screen.connect_for_each_screen(function(s) 
-    s.taglist = awful.widget.taglist {
-        screen  = s,
-        filter  = awful.widget.taglist.filter.all,
-        buttons = taglist_buttons,
-        widget_template = {
-            {
-                id = "icon_role",
-                widget = wibox.widget.imagebox,
+    s.taglist = wibox.widget {
+        shape = gears.shape.rounded_bar,
+        bg = "#000000",
+        widget = wibox.container.background,
+        {
+            left = 5,
+            right = 5,
+            widget = wibox.container.margin,{
+                widget = awful.widget.taglist {
+                    screen  = s,
+                    filter  = awful.widget.taglist.filter.all,
+                    buttons = taglist_buttons,
+                    widget_template = {
+                        {
+                            id = "icon_role",
+                            widget = wibox.widget.imagebox,
+                        },
+                        top = 5,
+                        left = 2.5,
+                        right = 2.5,  
+                        bottom = 5,
+                        widget = wibox.container.margin,
+                        create_callback = function(self, c3, index, objects)
+                            init_taglist_icon(self, c3)
+                        end,
+                        update_callback = function(self, c3, index, objects)
+                            init_taglist_icon(self, c3)
+                        end,
+                    },
+                },
             },
-            top = 5,
-            left = 2.5,
-            right = 2.5,  
-            bottom = 5,
-            widget = wibox.container.margin,
-            create_callback = function(self, c3, index, objects)
-                init_taglist_icon(self, c3)
-            end,
-            update_callback = function(self, c3, index, objects)
-                init_taglist_icon(self, c3)
-            end,
         },
     }
 end)
