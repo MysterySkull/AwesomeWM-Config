@@ -87,19 +87,23 @@ awful.screen.connect_for_each_screen(function(s)
         screen = s,
         bg = "#00000000",
         height = 25,
-        shape = function(cr, width, height)
+        --[[shape = function(cr, width, height)
             gears.shape.rounded_rect(cr, width, height, 15)
-        end,
+        end,]]
     })
-
 
     -- Add widgets to the wibox
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
-            mylauncher,
-            s.taglist,
+            --mylauncher,
+            {
+                s.taglist,
+                shape = gears.shape.rounded_bar,
+                bg = "#000000",
+                widget = wibox.widget.background,
+            },
             --mytaglist_test,
             s.mypromptbox,
         },
