@@ -9,7 +9,7 @@ separator_widget_taskbar = wibox.widget{
 }
 
 separator_widget_wibar = wibox.widget{
-    forced_width = 10, 
+    forced_width = 5, 
     wigdet = wibox.container.constraint, 
 }
 

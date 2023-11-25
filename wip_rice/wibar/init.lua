@@ -88,7 +88,8 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             s.taglist,
             separator_widget_wibar,
-            s.promptboxwidget,
+            promptbox_container,
+            separator_widget_wibar,
         },
         s.mytasklist, -- Middle widget
         { -- Right widgets

@@ -48,7 +48,9 @@ end
 
 awful.screen.connect_for_each_screen(function(s) 
     s.taglist = wibox.widget {
-        shape = gears.shape.rounded_bar,
+        shape = function(cr, width, height)
+            gears.shape.rounded_rect(cr, width,height, 7)
+        end,
         bg = "#000000",
         widget = wibox.container.background,
         {
