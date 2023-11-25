@@ -79,9 +79,6 @@ awful.screen.connect_for_each_screen(function(s)
         screen = s,
         bg = "#00000000",
         height = 25,
-        --[[shape = function(cr, width, height)
-            gears.shape.rounded_rect(cr, width, height, 15)
-        end,]]
     })
 
     -- Add widgets to the wibox
@@ -89,29 +86,25 @@ awful.screen.connect_for_each_screen(function(s)
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
-            --mylauncher,
             s.taglist,
-            --mytaglist_test,
-            {
-                widget = wibox.widget.textbox(" ")
-            },
-            s.mypromptbox,
+            separator_widget_wibar,
+            s.promptboxwidget,
         },
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             sound_widget_container,
-            separator_widget,
+            separator_widget_taskbar,
             bluetooth_widget_container,
-            separator_widget,
+            separator_widget_taskbar,
             internet_widget_container,
-            separator_widget,
+            separator_widget_taskbar,
             hardware_usage_widget_container,
-            separator_widget,
+            separator_widget_taskbar,
             battery_widget_container,
-            separator_widget,
+            separator_widget_taskbar,
             mytextclock_container,
-            separator_widget,
+            separator_widget_taskbar,
             s.mylayoutbox,
         },
     }
