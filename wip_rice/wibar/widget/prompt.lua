@@ -7,7 +7,24 @@ local gears = require("gears")
 local prompt_icon = gears.surface.load_uncached(".config/awesome/wip_rice/theme/prompt_icons/prompt_icon.svg")
 local prompt_icon = gears.color.recolor_image(prompt_icon, "#FFFFFF")
 
---local is_extended;
+prompt_command_keys = gears.table.join(
+    -- Prompt
+    awful.key({ modkey },            "r",     function () 
+        awful.screen.focused().mypromptbox:run() 
+    end,
+        {description = "run prompt", group = "launcher"}),
+
+    awful.key({ modkey }, "x",
+        function ()
+            awful.prompt.run {
+                prompt       = "Run Lua code: ",
+                textbox      = awful.screen.focused().mypromptbox.widget,
+                exe_callback = awful.util.eval,
+                history_path = awful.util.get_cache_dir() .. "/history_eval"
+            }
+        end,
+        {description = "lua execute prompt", group = "awesome"})
+)
 
 awful.screen.connect_for_each_screen(function(s)
     s.mypromptbox = awful.widget.prompt {

@@ -4,6 +4,7 @@ local wibox = require("wibox")
 local beautiful = require("beautiful")
 local dpi = beautiful.xresources.apply_dpi
 
+require("wip_rice/wibar/widget/launcher")
 require("wip_rice/wibar/widget/taglist")
 require("wip_rice/wibar/widget/prompt")
 
@@ -86,6 +87,8 @@ awful.screen.connect_for_each_screen(function(s)
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
+            arch_launcher, 
+            separator_widget_wibar,
             s.taglist,
             separator_widget_wibar,
             promptbox_container,
