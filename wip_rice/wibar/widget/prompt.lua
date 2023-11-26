@@ -4,8 +4,6 @@ local gears = require("gears")
 
 --TODO add a terminal icon to show prompt cmd
 
-local arch_icon = gears.surface.load_uncached(".config/awesome/wip_rice/theme/prompt_icons/archlinux-icon.svg")
-local arch_icon = gears.color.recolor_image(arch_icon, "#FFFFFF")
 local prompt_icon = gears.surface.load_uncached(".config/awesome/wip_rice/theme/prompt_icons/prompt_icon.svg")
 local prompt_icon = gears.color.recolor_image(prompt_icon, "#FFFFFF")
 
@@ -21,8 +19,6 @@ awful.screen.connect_for_each_screen(function(s)
         {
             {
                 {
-                    wibox.widget.imagebox(arch_icon),
-                    wibox.container.constraint{forced_width = 7.5},
                     wibox.widget.imagebox(prompt_icon),
                     s.mypromptbox,
                     layout = wibox.layout.fixed.horizontal,
