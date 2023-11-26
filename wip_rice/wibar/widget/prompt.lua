@@ -12,6 +12,11 @@ local prompt_icon = gears.color.recolor_image(prompt_icon, "#FFFFFF")
 --local is_extended;
 
 awful.screen.connect_for_each_screen(function(s)
+    s.mypromptbox = awful.widget.prompt {
+        prompt = " : ",
+        fg = "#FFFFFF",
+    }
+
     promptbox_container = wibox.widget {
         {
             {
@@ -19,10 +24,7 @@ awful.screen.connect_for_each_screen(function(s)
                     wibox.widget.imagebox(arch_icon),
                     wibox.container.constraint{forced_width = 7.5},
                     wibox.widget.imagebox(prompt_icon),
-                    {
-                        id = "mypromptbox",
-                        widget = awful.widget.prompt(),
-                    },
+                    s.mypromptbox,
                     layout = wibox.layout.fixed.horizontal,
                 },
                 top = 5,
