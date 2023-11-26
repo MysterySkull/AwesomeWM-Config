@@ -12,24 +12,25 @@ prompt_command_keys = gears.table.join(
     awful.key({ modkey },            "r",     function () 
         awful.screen.focused().mypromptbox:run() 
     end,
-        {description = "run prompt", group = "launcher"}),
+        {description = "run prompt", group = "prompt"}),
 
     awful.key({ modkey }, "x",
         function ()
             awful.prompt.run {
-                prompt       = "Run Lua code: ",
+                prompt       = " Lua : ",
                 textbox      = awful.screen.focused().mypromptbox.widget,
                 exe_callback = awful.util.eval,
                 history_path = awful.util.get_cache_dir() .. "/history_eval"
             }
         end,
-        {description = "lua execute prompt", group = "awesome"})
+        {description = "lua execute prompt", group = "prompt"})
 )
 
 awful.screen.connect_for_each_screen(function(s)
     s.mypromptbox = awful.widget.prompt {
         prompt = " : ",
         fg = "#FFFFFF",
+        bg_cursor = "#FFFFFF"
     }
 
     promptbox_container = wibox.widget {
@@ -56,4 +57,8 @@ awful.screen.connect_for_each_screen(function(s)
         bg = "#000000",
         widget = wibox.container.background,
     }
+
+    promptbox_container:buttons(gears.table.join(
+    awful.button({ }, 1, function() awful.screen.focused().mypromptbox:run() end))
+    )
 end)
