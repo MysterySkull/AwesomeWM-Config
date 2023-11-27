@@ -11,7 +11,7 @@ require("awful.autofocus")
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init("/home/guillaume/.config/awesome/wip_rice/theme/theme.lua")
+beautiful.init("/home/guillaume/.config/awesome/initial_rice/theme/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "alacritty"
@@ -27,13 +27,24 @@ modkey = "Mod4"
 
 -- Keyboard map indicator and switcher
 -- mykeyboardlayout = awful.widget.keyboardlayout()
-require(general_config_name .. "/environment")
+
+require(general_config_name .. "/layout")
+
+require(general_config_name .. "/menu")
 
 require(general_config_name .. "/wibar")
 
 require(general_config_name .. "/binding")
 
+require(general_config_name .. "/rules")
+
 require(general_config_name .. "/titlebar")
+
+require(general_config_name .. "/signal")
+
+require(general_config_name .. "/auto_start")
+
+require(general_config_name .. "/error_handling")
 
 gears.timer {
 	timeout = 30,
