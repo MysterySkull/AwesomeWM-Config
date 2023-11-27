@@ -27,24 +27,13 @@ modkey = "Mod4"
 
 -- Keyboard map indicator and switcher
 -- mykeyboardlayout = awful.widget.keyboardlayout()
-
-require(general_config_name .. "/layout")
-
-require(general_config_name .. "/menu")
+require(general_config_name .. "/environment")
 
 require(general_config_name .. "/wibar")
 
 require(general_config_name .. "/binding")
 
-require(general_config_name .. "/rules")
-
 require(general_config_name .. "/titlebar")
-
-require(general_config_name .. "/signal")
-
-require(general_config_name .. "/auto_start")
-
-require(general_config_name .. "/error_handling")
 
 gears.timer {
 	timeout = 30,

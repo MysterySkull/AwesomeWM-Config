@@ -1,0 +1,6 @@
+require(general_config_name .. "/environment/layout")
+require(general_config_name .. "/environment/menu")
+require(general_config_name .. "/environment/auto_start")
+require(general_config_name .. "/environment/error_handling")
+require(general_config_name .. "/environment/rules")
+require(general_config_name .. "/environment/signal")
