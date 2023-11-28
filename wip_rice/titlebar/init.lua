@@ -2,14 +2,14 @@ local awful = require("awful")
 local wibox = require("wibox")
 
 client.connect_signal("request::titlebars", function(c)
-	--[[ Declaration of icon
+	-- Declaration of icon
 	local titlebar_icon = wibox.widget{
 		layout = wibox.layout.fixed.horizontal,
 		{ 
 			awful.titlebar.widget.iconwidget(c)
 		},
 		widget = wibox.container.margin
-	}]]
+	}
 
 
 	-- setup of title bar

@@ -72,7 +72,7 @@ function set_battery_color()
 	if battery_data.status > 0 then
 		battery_widget_container.fg = color.blue
 	elseif battery_data.percent > 15 then
-		battery_widget_container.fg = color.text
+		battery_widget_container.fg = "#FFFFFF"
 	elseif battery_data.percent > 10 then
 		battery_widget_container.fg = color.yellow
 	else
