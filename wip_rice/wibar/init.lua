@@ -126,7 +126,6 @@ awful.screen.connect_for_each_screen(function(s)
             sound_widget_container,
             bluetooth_widget_container,
             internet_widget_container,
-            --hardware_usage_widget_container,
             battery_widget_container,
             separator_widget_wibar,
             s.mylayoutbox,
