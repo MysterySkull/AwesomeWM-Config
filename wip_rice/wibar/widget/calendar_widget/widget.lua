@@ -6,13 +6,15 @@ mytextclock_container = wibox.widget {
     {
         {
             {
-                widget = mytextclock
+                widget = mytextclock,
+                color = "#FFFFFF",
             },
             left = 10,
             right = 10,
             widget = wibox.container.margin,
         },
         bg = "#000000",
+        fg = "#FFFFFF",
         shape = function(cr, width, height)
             gears.shape.rounded_rect(cr, width, height, 7)
         end,

@@ -62,7 +62,25 @@ awful.screen.connect_for_each_screen(function(s)
 
     -- Create an imagebox widget which will contain an icon indicating which layout we're using.
     -- We need one layoutbox per screen.
-    s.mylayoutbox = awful.widget.layoutbox(s)
+    s.mylayoutbox = wibox.widget {
+        {
+            {
+                screen = s,
+                widget = awful.widget.layoutbox,
+            },
+            top = 2.5,
+            left = 5,
+            right = 5,
+            bottom = 2.5,
+            widget = wibox.container.margin,
+        },
+        bg = "#000000",
+        fg = "#FFFFFF",
+        shape = function(cr, width, height)
+            gears.shape.rounded_rect(cr, width, height, 7)
+        end,
+        widget = wibox.container.background,
+    }
     s.mylayoutbox:buttons(gears.table.join(
         awful.button({ }, 1, function () awful.layout.inc( 1) end)))
 
@@ -106,15 +124,11 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             sound_widget_container,
-            separator_widget_taskbar,
             bluetooth_widget_container,
-            separator_widget_taskbar,
             internet_widget_container,
-            separator_widget_taskbar,
-            hardware_usage_widget_container,
-            separator_widget_taskbar,
+            --hardware_usage_widget_container,
             battery_widget_container,
-            separator_widget_taskbar,
+            separator_widget_wibar,
             s.mylayoutbox,
         },
     }
