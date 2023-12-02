@@ -34,10 +34,6 @@ beautiful.init("~/.config/awesome/current_rice/theme.lua")
 
 require(rice_name .."/layout")
 
--- Menubar configuration
-menubar.utils.terminal = terminal -- Set the terminal for applications that require it
--- }}}
-
 -- {{{ Wibar
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
@@ -492,3 +488,11 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+
+--- GARBAGE COLLECTOR ---
+gears.timer {
+	timeout = 30,
+	autostart = true,
+	callback = function() collectgarbage() end
+}
+
