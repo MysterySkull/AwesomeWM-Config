@@ -15,24 +15,25 @@ local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 
--- Enable error handling
-require("current_rice/error_handling")
 
--- {{{ Variable definitions
--- Themes define colours, icons, font and wallpapers.
-beautiful.init("~/.config/awesome/default/theme.lua")
-
+--- GLOBAL VARIABLES
 -- This is used later as the default terminal and editor to run.
 terminal = "alacritty"
-editor = os.getenv("EDITOR") or "nano"
+editor = "nvim"
 editor_cmd = terminal .. " -e " .. editor
-
+browser = "firefox"
 -- Default modkey.
--- Usually, Mod4 is the key with a logo between Control and Alt.
--- If you do not like this or do not have such a key,
--- I suggest you to remap Mod4 to another key using xmodmap or other tools.
--- However, you can use another modifier like Mod1, but it may interact with others.
 modkey = "Mod4"
+-- name of the theme
+rice_name = "current_rice"
+
+-- Enable error handling
+require(rice_name .."/error_handling")
+
+
+-- Theme definition --
+beautiful.init("~/.config/awesome/current_rice/theme.lua")
+
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
