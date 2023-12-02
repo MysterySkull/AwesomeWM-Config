@@ -4,33 +4,13 @@ local wibox = require("wibox")
 local beautiful = require("beautiful")
 
 require(rice_name .."/screen/taglist")
+require(rice_name .."/screen/tasklist")
 
 -- {{{ Wibar
 -- Create a textclock widget
 local mytextclock = wibox.widget.textclock()
 
 
-local tasklist_buttons = gears.table.join(
-    awful.button({ }, 1, function (c)
-        if c == client.focus then
-            c.minimized = true
-        else
-            c:emit_signal(
-                "request::activate",
-                "tasklist",
-                {raise = true}
-            )
-        end
-    end),
-    awful.button({ }, 3, function()
-        awful.menu.client_list({ theme = { width = 250 } })
-    end),
-    awful.button({ }, 4, function ()
-        awful.client.focus.byidx(1)
-    end),
-    awful.button({ }, 5, function ()
-        awful.client.focus.byidx(-1)
-    end))
 
 local function set_wallpaper(s)
     -- Wallpaper
@@ -67,12 +47,7 @@ awful.screen.connect_for_each_screen(function(s)
     -- Create a taglist widget
     s.mytaglist = create_taglist_widget(s)
     -- Create a tasklist widget
-    s.mytasklist = awful.widget.tasklist {
-        screen  = s,
-        filter  = awful.widget.tasklist.filter.currenttags,
-        buttons = tasklist_buttons
-    }
-
+    s.mytasklist = create_tasklist_widget(s) 
     -- Create the wibox
     s.mywibox = awful.wibar({ position = "top", screen = s })
 
