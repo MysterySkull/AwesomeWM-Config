@@ -10,8 +10,6 @@ require(rice_name .."/screen/tasklist")
 -- Create a textclock widget
 local mytextclock = wibox.widget.textclock()
 
-
-
 local function set_wallpaper(s)
     -- Wallpaper
     if beautiful.wallpaper then
@@ -44,10 +42,6 @@ awful.screen.connect_for_each_screen(function(s)
         awful.button({ }, 3, function () awful.layout.inc(-1) end),
         awful.button({ }, 4, function () awful.layout.inc( 1) end),
         awful.button({ }, 5, function () awful.layout.inc(-1) end)))
-    -- Create a taglist widget
-    s.mytaglist = create_taglist_widget(s)
-    -- Create a tasklist widget
-    s.mytasklist = create_tasklist_widget(s) 
     -- Create the wibox
     s.mywibox = awful.wibar({ position = "top", screen = s })
 
@@ -56,10 +50,10 @@ awful.screen.connect_for_each_screen(function(s)
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
-            s.mytaglist,
+            create_taglist_widget(s),
             s.mypromptbox,
         },
-        s.mytasklist, -- Middle widget
+        create_tasklist_widget(s), -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             mytextclock,
