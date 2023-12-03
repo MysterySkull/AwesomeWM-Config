@@ -30,6 +30,9 @@ beautiful.init(rice_root_dir .."/theme.lua")
 --- LAYOUT DEFINITION ---
 require(rice_name .."/layout")
 
+--- TAGS DEFINITION ---
+require(rice_name .."/taglist")
+
 --- SCREEN SETUP ---
 require(rice_name .."/screen")
 

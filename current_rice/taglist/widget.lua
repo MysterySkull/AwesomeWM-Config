@@ -28,4 +28,3 @@ function create_taglist_widget(s)
         buttons = create_taglist_button()
     }
 end
-
