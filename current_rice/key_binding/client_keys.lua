@@ -2,7 +2,7 @@ local gears = require("gears")
 local awful = require("awful")
 
 function create_client_keys(c)
-    clientkeys = gears.table.join(
+    local clientkeys = gears.table.join(
         awful.key({ modkey,           }, "f",
             function (c)
                 c.fullscreen = not c.fullscreen

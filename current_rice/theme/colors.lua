@@ -1,18 +1,23 @@
-local theme = {}
+colors = {}
 
-theme.bg_normal     = "#222222"
-theme.bg_focus      = "#535d6c"
-theme.bg_urgent     = "#ff0000"
-theme.bg_minimize   = "#444444"
-theme.bg_systray    = theme.bg_normal
+colors.dark_nord0 = "#2E3440"
+colors.dark_nord1 = "#3B4252"
+colors.dark_nord2 = "#434C5E"
+colors.dark_nord3 = "#4C566A"
 
-theme.fg_normal     = "#aaaaaa"
-theme.fg_focus      = "#ffffff"
-theme.fg_urgent     = "#ffffff"
-theme.fg_minimize   = "#ffffff"
+colors.bright_nord4 = "#D8DEE9" 
+colors.bright_nord5 = "#E5E9F0"
+colors.bright_nord6 = "#ECEFF4"
 
-theme.useless_gap   = dpi(0)
-theme.border_width  = dpi(1)
-theme.border_normal = "#000000"
-theme.border_focus  = "#535d6c"
-theme.border_marked = "#91231c"
+colors.frost_nord7 = "#8FBCBB"
+colors.frost_nord8 = "#88C0D0"
+colors.frost_nord9 = "#81A1C1"
+colors.frost_nord10 = "#5E81AC"
+
+colors.aurora_red = "#BF616A"
+colors.aurora_orange = "#D08770"
+colors.aurora_yellow = "#EBCB8B"
+colors.aurora_green = "#A3BE8C"
+colors.aurora_purple = "#B48EAD"
+
+return colors
