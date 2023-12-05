@@ -9,36 +9,56 @@ local dpi = xresources.apply_dpi
 local gfs = require("gears.filesystem")
 local themes_path = "~/.config/awesome/current_rice/theme/"
 
-colors = {}
+color = {}
 
-colors.dark_nord0 = "#2E3440"
-colors.dark_nord1 = "#3B4252"
-colors.dark_nord2 = "#434C5E"
-colors.dark_nord3 = "#4C566A"
+color.rosewater = "#F5E0DC"
+color.flamingo = "#F2CDCD"
+color.pink = "#F5C2E7"
+color.mauve = "#CBA6F7"
+color.red = "#F38BA8"
+color.maroon = "#EBA0AC"
+color.peach = "#FAB387"
+color.yellow = "#F9E2AF"
+color.green = "#A6E3A1"
+color.teal = "#94E2D5"
+color.sky = "#89DCEB"
+color.sapphire = "#74C7EC"
+color.blue = "#89B4FA"
+color.lavender = "#B4BEFE"
 
-colors.bright_nord4 = "#D8DEE9" 
-colors.bright_nord5 = "#E5E9F0"
-colors.bright_nord6 = "#ECEFF4"
+color.text = "#CDD6F4"
+color.subtext1 = "#BAC2DE"
+color.subtext0 = "#A6ADC8"
+color.overlay2 = "#9399B2"
+color.overlay1 = "#7F849C"
+color.overlay0 = "#6C7086"
+color.surface2 = "#585B70"
+color.surface1 = "#45475A"
+color.surface0 = "#313244"
 
-colors.frost_nord7 = "#8FBCBB"
-colors.frost_nord8 = "#88C0D0"
-colors.frost_nord9 = "#81A1C1"
-colors.frost_nord10 = "#5E81AC"
+color.base = "#1E1E2E"
+color.mantle = "#181825"
+color.crust = "#11111B"
 
-colors.aurora_red = "#BF616A"
-colors.aurora_orange = "#D08770"
-colors.aurora_yellow = "#EBCB8B"
-colors.aurora_green = "#A3BE8C"
-colors.aurora_purple = "#B48EAD"
+
+color.darkerbase = "#020d1f"
+color.base03  = "#002b36"
+color.base02  = "#073642"
+color.base01  = "#586e75"
+color.base00  = "#657b83"
+color.base0   = "#839496"
+color.base1   = "#93a1a1"
+color.base2   = "#eee8d5"
+color.base3   = "#fdf6e3"
 
 local theme = {}
 
 theme.font          = "sans 8"
 
-theme.bg_normal     = colors.dark_nord0
-theme.bg_focus      = colors.dark_nord3
-theme.bg_urgent     = colors.aurora_red
-theme.bg_minimize   = colors.aurora_green
+theme.bg_normal     = color.crust
+theme.bg_focus      = color.base
+theme.bg_urgent     = color.red
+theme.bg_minimize   = color.green
 theme.bg_systray    = theme.bg_normal
 
 theme.fg_normal     = "#aaaaaa"
@@ -48,12 +68,13 @@ theme.fg_minimize   = "#ffffff"
 
 theme.useless_gap   = dpi(2)
 theme.border_width  = dpi(2)
-theme.border_normal = "#000000"
-theme.border_focus  = "#333333"
+theme.border_normal = color.crust
+theme.border_focus  = color.surface0
 theme.border_marked = "#91231c"
 
-theme.titlebar_bg = colors.dark_nord0
-theme.titlebar_fg = colors.bright_nord4
+theme.titlebar_bg_normal = color.crust
+theme.titlebar_bg_focus = color.surface0
+theme.titlebar_fg = color.text
 
 -- There are other variable sets
 -- overriding the default one when
