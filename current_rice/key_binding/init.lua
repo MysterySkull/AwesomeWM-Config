@@ -3,10 +3,12 @@ local awful = require("awful")
 local hotkeys_popup = require("awful.hotkeys_popup")
 
 require(rice_name .."/key_binding/awesome_keys")
+require(rice_name .."/key_binding/launcher_keys")
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
     awesome_keys(),
+    launcher_keys(),
 
     awful.key({ modkey,           }, "j",
         function ()
@@ -42,8 +44,6 @@ globalkeys = gears.table.join(
         {description = "go back", group = "client"}),
 
     -- Standard program
-    awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
-        {description = "open a terminal", group = "launcher"}),
 
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)          end,
         {description = "increase master width factor", group = "layout"}),
@@ -72,11 +72,9 @@ globalkeys = gears.table.join(
                 )
             end
         end,
-        {description = "restore minimized", group = "client"}),
+        {description = "restore minimized", group = "client"})
 
     -- Prompt
-    awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
-        {description = "run prompt", group = "launcher"})
 
 )
     -- Menubar
