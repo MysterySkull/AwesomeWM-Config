@@ -7,7 +7,8 @@ local xresources = require("beautiful.xresources")
 local dpi = xresources.apply_dpi
 
 local gfs = require("gears.filesystem")
-local themes_path = "~/.config/awesome/current_rice/theme/"
+local gears = require("gears")
+local themes_path = ".config/awesome/current_rice/theme/"
 
 color = {}
 
@@ -39,17 +40,6 @@ color.surface0 = "#313244"
 color.base = "#1E1E2E"
 color.mantle = "#181825"
 color.crust = "#11111B"
-
-
-color.darkerbase = "#020d1f"
-color.base03  = "#002b36"
-color.base02  = "#073642"
-color.base01  = "#586e75"
-color.base00  = "#657b83"
-color.base0   = "#839496"
-color.base1   = "#93a1a1"
-color.base2   = "#eee8d5"
-color.base3   = "#fdf6e3"
 
 local theme = {}
 
@@ -116,17 +106,20 @@ theme.menu_width  = dpi(100)
 -- beautiful.variable in your rc.lua
 --theme.bg_widget = "#cc0000"
 
+local titlebar_icon_button = gears.surface.load_uncached(themes_path .. "titlebar/icon_unfocus.svg")
 -- Define the image to load
-theme.titlebar_close_button_normal = themes_path .. "titlebar/icon_unfocus.svg"
-theme.titlebar_close_button_focus = themes_path .. "titlebar/close_icon_focus.svg"
+--theme.titlebar_close_button_normal = gears.color.recolor_image(themes_path .. "titlebar/icon_unfocus.svg", color.mantle)
+theme.titlebar_close_button_focus = gears.color.recolor_image(titlebar_icon_button, color.red)
+theme.titlebar_close_button_normal = gears.color.recolor_image(titlebar_icon_button, color.surface2)
 
-theme.titlebar_minimize_button_normal = themes_path.."titlebar/icon_unfocus.svg"
-theme.titlebar_minimize_button_focus  = themes_path.."titlebar/minimize_icon_focus.svg"
+theme.titlebar_minimize_button_normal = gears.color.recolor_image(titlebar_icon_button, color.surface2)
+theme.titlebar_minimize_button_focus  = gears.color.recolor_image(titlebar_icon_button, color.yellow)
 
-theme.titlebar_maximized_button_normal_inactive = themes_path.."titlebar/icon_unfocus.svg"
-theme.titlebar_maximized_button_focus_inactive  = themes_path.."titlebar/maximized_icon_focus.svg"
-theme.titlebar_maximized_button_normal_active = themes_path.."titlebar/icon_unfocus.svg"
-theme.titlebar_maximized_button_focus_active  = themes_path.."titlebar/maximized_icon_focus.svg"
+theme.titlebar_maximized_button_normal_inactive = gears.color.recolor_image(titlebar_icon_button, color.surface2)
+theme.titlebar_maximized_button_focus_inactive  = gears.color.recolor_image(titlebar_icon_button, color.green)
+theme.titlebar_maximized_button_normal_active = gears.color.recolor_image(titlebar_icon_button, color.surface2)
+theme.titlebar_maximized_button_focus_active  = gears.color.recolor_image(titlebar_icon_button, color.green)
+ 
 
 theme.wallpaper = themes_path.."background.png"
 
