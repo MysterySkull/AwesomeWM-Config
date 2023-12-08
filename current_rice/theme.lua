@@ -46,7 +46,7 @@ local theme = {}
 theme.font          = "sans 8"
 
 theme.bg_normal     = color.crust
-theme.bg_focus      = color.base
+theme.bg_focus      = color.surface0
 theme.bg_urgent     = color.red
 theme.bg_minimize   = color.green
 theme.bg_systray    = theme.bg_normal
