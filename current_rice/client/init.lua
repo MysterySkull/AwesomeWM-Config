@@ -20,9 +20,9 @@ client.connect_signal("manage", function (c)
         awful.placement.no_offscreen(c)
     end
 
-    c.shape = function(cr, w, h)
+    --[[c.shape = function(cr, w, h)
         gears.shape.rounded_rect(cr, w, h, 15)
-    end
+    end]]
 end)
 
 -- Enable sloppy focus, so that focus follows mouse.
