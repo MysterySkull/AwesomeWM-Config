@@ -43,7 +43,7 @@ color.crust = "#11111B"
 
 local theme = {}
 
-theme.font          = "Ubuntu Nerd Font Bold 8"
+theme.font          = "Ubuntu Nerd Font Bold "
 
 theme.bg_normal     = color.crust
 theme.bg_focus      = color.surface0
