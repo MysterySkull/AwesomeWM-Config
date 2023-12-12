@@ -27,7 +27,7 @@ client.connect_signal("request::titlebars", function(c)
         },
         { -- Middle
             { -- Title
-                font = beautiful.font .. " 8",
+                font = beautiful.font .. " 8 ",
                 align  = "center",
                 widget = awful.titlebar.widget.titlewidget(c)
             },

@@ -43,18 +43,19 @@ color.crust = "#11111B"
 
 local theme = {}
 
-theme.font          = "Ubuntu Nerd Font Bold "
+theme.font          = "Ubuntu Nerd Font Bold"
 
 theme.bg_normal     = color.crust
 theme.bg_focus      = color.surface0
 theme.bg_urgent     = color.red
-theme.bg_minimize   = color.green
+theme.bg_minimize   = color.yellow
 theme.bg_systray    = theme.bg_normal
 
-theme.fg_normal     = "#aaaaaa"
-theme.fg_focus      = "#ffffff"
-theme.fg_urgent     = "#ffffff"
-theme.fg_minimize   = "#ffffff"
+theme.fg_normal     = color.text
+theme.fg_focus      = color.text
+theme.fg_urgent     = color.text
+theme.fg_minimize   = color.crust
+theme.fg_urgent     = color.crust
 
 theme.useless_gap   = dpi(2)
 theme.border_width  = dpi(2)
