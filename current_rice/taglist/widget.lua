@@ -21,6 +21,28 @@ function create_taglist_button()
 end
 
 function create_taglist_widget(s)
+    local selected_shape_size = 26
+    local not_selected_shape_size = 16
+
+    local function update_taglist(self, c3)
+        if c3.selected then
+            self:get_children_by_id("tag_circle")[1].forced_width = selected_shape_size
+            self:get_children_by_id("tag_circle")[1].shape = function(cr, width, height)
+                gears.shape.rounded_rect(cr, width, height)
+            end
+        else
+            self:get_children_by_id("tag_circle")[1].forced_width = not_selected_shape_size
+            self:get_children_by_id("tag_circle")[1].shape = function(cr, width, height)
+                gears.shape.circle(cr,width, height)
+            end
+        end
+        if #c3:clients() == 0 then
+            self:get_children_by_id("tag_circle")[1].bg = color.surface0
+        else
+            self:get_children_by_id("tag_circle")[1].bg = color.text
+        end
+    end 
+
     return wibox.widget{
         bg = "#00000000",
         shape = function(cr, width, height)
@@ -38,40 +60,19 @@ function create_taglist_widget(s)
                             gears.shape.circle(cr, width, height)
                         end,
                         bg = color.surface0,
-                        forced_width = 20,
+                        forced_width = not_selected_shape_size,
                         widget = wibox.container.background,
                     },
-                    margins = 5,
+                    top = 7,
+                    bottom = 7,
+                    left = 2,
+                    right = 2,
                     widget = wibox.container.margin,
                     create_callback = function(self, c3, index, objects)
-                        if c3.selected then
-                            self:get_children_by_id("tag_circle")[1].forced_width = 30
-                            self:get_children_by_id("tag_circle")[1].shape = function(cr, width, height)
-                                gears.shape.rounded_rect(cr, width, height)
-                            end
-                        else
-                            self:get_children_by_id("tag_circle")[1].forced_width = 20
-                        end
-                        if #c3:clients() == 0 then
-                            self:get_children_by_id("tag_circle")[1].bg = color.surface0
-                        else
-                            self:get_children_by_id("tag_circle")[1].bg = color.text
-                        end
+                        update_taglist(self, c3)
                     end,
                     update_callback = function(self, c3, index, objects)
-                        if c3.selected then
-                            self:get_children_by_id("tag_circle")[1].forced_width = 30
-                            self:get_children_by_id("tag_circle")[1].shape = function(cr, width, height)
-                                gears.shape.rounded_rect(cr, width, height)
-                            end
-                        else
-                            self:get_children_by_id("tag_circle")[1].forced_width = 20
-                        end
-                        if #c3:clients() == 0 then
-                            self:get_children_by_id("tag_circle")[1].bg = color.surface0
-                        else
-                            self:get_children_by_id("tag_circle")[1].bg = color.text
-                        end
+                        update_taglist(self, c3)
                     end,
                 },
             },
