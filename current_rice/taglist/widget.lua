@@ -22,7 +22,7 @@ end
 
 function create_taglist_widget(s)
     return wibox.widget{
-        bg = "#FFFFFFFF",
+        bg = "#00000000",
         shape = function(cr, width, height)
             gears.shape.rounded_rect(cr, width, height, 15)
         end,

@@ -27,7 +27,7 @@ function create_tasklist_button()
 end
 
 function create_tasklist_widget(s)
-    return awful.widget.tasklist {
+    return awful.widget.tasklist{
         screen  = s,
         filter  = awful.widget.tasklist.filter.currenttags,
         buttons = create_tasklist_button()

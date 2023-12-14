@@ -57,7 +57,7 @@ theme.fg_urgent     = color.text
 theme.fg_minimize   = color.crust
 theme.fg_urgent     = color.crust
 
-theme.useless_gap   = dpi(2)
+theme.useless_gap   = dpi(5)
 theme.border_width  = dpi(2)
 theme.border_normal = color.crust
 theme.border_focus  = color.surface0
