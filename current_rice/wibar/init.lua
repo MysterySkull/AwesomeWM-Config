@@ -17,16 +17,23 @@ local function create_tag_task_widget(s)
     return wibox.widget{
         {
             {
-                create_taglist_widget(s),
-                create_tasklist_widget(s),
-                layout = wibox.layout.fixed.horizontal,
+                {
+                    create_taglist_widget(s),
+                    create_tasklist_widget(s),
+                    layout = wibox.layout.fixed.horizontal,
+                },
+                top = 0, 
+                bottom = 0,
+                left = 7,
+                right = 7,
+                widget = wibox.container.margin,
             },
             shape = function(cr, width, height)
                 gears.shape.rounded_rect(cr, width, height, 15)
             end,
             bg = color.crust,
             widget = wibox.container.background,
-        },
+        }, 
         width = s.workarea.width / 2 - 100,
         widget = wibox.container.constraint,
     }

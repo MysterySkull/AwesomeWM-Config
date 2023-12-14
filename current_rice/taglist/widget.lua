@@ -21,25 +21,14 @@ function create_taglist_button()
 end
 
 function create_taglist_widget(s)
-    local selected_shape_size = 26
-    local not_selected_shape_size = 16
 
     local function update_taglist(self, c3)
         if c3.selected then
-            self:get_children_by_id("tag_circle")[1].forced_width = selected_shape_size
-            self:get_children_by_id("tag_circle")[1].shape = function(cr, width, height)
-                gears.shape.rounded_rect(cr, width, height)
-            end
-        else
-            self:get_children_by_id("tag_circle")[1].forced_width = not_selected_shape_size
-            self:get_children_by_id("tag_circle")[1].shape = function(cr, width, height)
-                gears.shape.circle(cr,width, height)
-            end
-        end
-        if #c3:clients() == 0 then
-            self:get_children_by_id("tag_circle")[1].bg = color.surface0
-        else
             self:get_children_by_id("tag_circle")[1].bg = color.text
+        elseif #c3:clients() == 0 then
+            self:get_children_by_id("tag_circle")[1].bg = color.base
+        else
+            self:get_children_by_id("tag_circle")[1].bg = color.surface1
         end
     end 
 
@@ -60,13 +49,13 @@ function create_taglist_widget(s)
                             gears.shape.circle(cr, width, height)
                         end,
                         bg = color.surface0,
-                        forced_width = not_selected_shape_size,
+                        forced_width = 17, 
                         widget = wibox.container.background,
                     },
                     top = 7,
                     bottom = 7,
-                    left = 2,
-                    right = 2,
+                    left = 3.5, 
+                    right = 3.5,
                     widget = wibox.container.margin,
                     create_callback = function(self, c3, index, objects)
                         update_taglist(self, c3)
