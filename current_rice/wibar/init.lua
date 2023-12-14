@@ -14,9 +14,13 @@ local mytextclock = wibox.widget.textclock()
 
 local function create_tag_task_widget(s)
     return wibox.widget{
-        create_taglist_widget(s),
-        create_tasklist_widget(s),
-        layout = wibox.layout.fixed.horizontal,
+        {
+            create_taglist_widget(s),
+            create_tasklist_widget(s),
+            layout = wibox.layout.fixed.horizontal,
+        },
+        bg = color.crust,
+        widget = wibox.container.background,
     }
 end
 

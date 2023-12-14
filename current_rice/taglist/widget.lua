@@ -37,7 +37,7 @@ function create_taglist_widget(s)
                         shape = function(cr, width, height)
                             gears.shape.circle(cr, width, height)
                         end,
-                        bg = "#000000",
+                        bg = color.surface0,
                         forced_width = 20,
                         widget = wibox.container.background,
                     },
@@ -52,6 +52,11 @@ function create_taglist_widget(s)
                         else
                             self:get_children_by_id("tag_circle")[1].forced_width = 20
                         end
+                        if #c3:clients() == 0 then
+                            self:get_children_by_id("tag_circle")[1].bg = color.surface0
+                        else
+                            self:get_children_by_id("tag_circle")[1].bg = color.text
+                        end
                     end,
                     update_callback = function(self, c3, index, objects)
                         if c3.selected then
@@ -61,6 +66,11 @@ function create_taglist_widget(s)
                             end
                         else
                             self:get_children_by_id("tag_circle")[1].forced_width = 20
+                        end
+                        if #c3:clients() == 0 then
+                            self:get_children_by_id("tag_circle")[1].bg = color.surface0
+                        else
+                            self:get_children_by_id("tag_circle")[1].bg = color.text
                         end
                     end,
                 },
