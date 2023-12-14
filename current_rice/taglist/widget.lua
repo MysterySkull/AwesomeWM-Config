@@ -28,7 +28,7 @@ function create_taglist_widget(s)
         elseif #c3:clients() == 0 then
             self:get_children_by_id("tag_circle")[1].bg = color.base
         else
-            self:get_children_by_id("tag_circle")[1].bg = color.surface1
+            self:get_children_by_id("tag_circle")[1].bg = color.surface2
         end
     end 
 
