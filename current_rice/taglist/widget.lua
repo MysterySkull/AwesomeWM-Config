@@ -23,7 +23,9 @@ end
 function create_taglist_widget(s)
 
     local function update_taglist(self, c3)
-        if c3.selected then
+        if c3.urgent then 
+            self:get_children_by_id("tag_circle")[1].bg = color.red
+        elseif c3.selected then
             self:get_children_by_id("tag_circle")[1].bg = color.text
         elseif #c3:clients() == 0 then
             self:get_children_by_id("tag_circle")[1].bg = color.base

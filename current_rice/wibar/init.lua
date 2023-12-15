@@ -11,7 +11,10 @@ require(rice_name .."/layout/widget")
 
 -- {{{ Wibar
 -- Create a textclock widget
-local mytextclock = wibox.widget.textclock()
+local mytextclock = wibox.widget{
+    halign = "center",
+    widget = wibox.widget.textclock,
+}
 
 local function create_tag_task_widget(s)
     return wibox.widget{
@@ -34,7 +37,7 @@ local function create_tag_task_widget(s)
             bg = color.crust,
             widget = wibox.container.background,
         }, 
-        width = s.workarea.width / 2 - 100,
+        width = s.workarea.width / 2 - 110,
         widget = wibox.container.constraint,
     }
 end
@@ -59,19 +62,29 @@ awful.screen.connect_for_each_screen(function(s)
     -- Add widgets to the wibox
     s.mywibox:setup {
         layout = wibox.layout.stack,
-        { -- Left widgets
+        { -- Right and left widget
             layout = wibox.layout.align.horizontal,
             {
                 create_tag_task_widget(s),
                 s.mypromptbox,
                 layout = wibox.layout.fixed.horizontal,
             },
-            wibox.container.background(),
+            nil,
             create_layout_widget(s),
         },
-        {
-            align = "center",
-            widget = wibox.widget.textclock,
+        { -- Middle widget
+            {
+                mytextclock,
+                shape = function(cr, width, height)
+                    gears.shape.rounded_rect(cr, width, height, 15)
+                end,
+                bg = color.crust,
+                forced_width = 180,
+                forced_height = 30,
+                widget = wibox.container.background,
+            },
+            halign = "center",
+            widget = wibox.container.place,
         },
     }
 end)
