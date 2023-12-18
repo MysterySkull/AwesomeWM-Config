@@ -10,6 +10,7 @@ require(rice_name .."/tasklist/widget")
 require(rice_name .."/layout/widget")
 require(rice_name .."/widget/battery")
 require(rice_name .."/widget/sound")
+require(rice_name .."/widget/internet") 
 
 -- {{{ Wibar
 -- Create a textclock widget
@@ -105,7 +106,8 @@ awful.screen.connect_for_each_screen(function(s)
             },
             nil,
             {
-                wibox.widget.textbox("wifi"),
+                internet_widget_container,
+                wibox.widget.textbox(" "),
                 sound_widget_container,
                 --wibox.widget.textbox(awful.widget.watch(acpi, 1)),
                 wibox.widget.textbox(" "),
