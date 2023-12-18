@@ -34,30 +34,30 @@ function create_tasklist_widget(s)
         buttons = create_tasklist_button(),
         widget_template = {
             {
-                {
                     {
                         {
-                            id = "clienticon",
-                            widget = awful.widget.clienticon,
+                            {
+                                id = "clienticon",
+                                widget = awful.widget.clienticon,
+                            },
+                            forced_height = 30-8,
+                            top = 5,
+                            widget = wibox.container.margin,
                         },
-                        forced_height = 30-8,
-                        top = 5,
-                        widget = wibox.container.margin,
+                        valign = "top",
+                        halign = "center",
+                        widget = wibox.container.place,
                     },
-                    valign = "top",
-                    halign = "center",
-                    widget = wibox.container.place,
-                },
-                {
-                    shape = function(cr, width, height)
-                        gears.shape.circle(cr, width, height, 2)
-                    end,
-                    id = "clientcolor", 
-                    forced_width = 15,
-                    forced_height = 8,
-                    widget = wibox.container.background,
-                },
-                layout = wibox.layout.fixed.vertical,
+                    {
+                        shape = function(cr, width, height)
+                            gears.shape.circle(cr, width, height, 2)
+                        end,
+                        id = "clientcolor", 
+                        forced_width = 15,
+                        forced_height = 8,
+                        widget = wibox.container.background,
+                    },
+                    layout = wibox.layout.fixed.vertical,
             },
             widget = wibox.container.background,
             create_callback = function(self, c, index, objects)

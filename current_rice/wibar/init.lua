@@ -8,6 +8,7 @@ local dpi = xresources.apply_dpi
 require(rice_name .."/taglist/widget")
 require(rice_name .."/tasklist/widget")
 require(rice_name .."/layout/widget")
+require(rice_name .."/widget/battery")
 
 -- {{{ Wibar
 -- Create a textclock widget
@@ -36,13 +37,31 @@ local function create_tag_task_widget(s)
             {
                 {
                     create_taglist_widget(s),
-                    create_tasklist_widget(s),
+                    {
+                        {
+                            color = color.text,
+                            forced_width = 10,
+                            orientation = "vertical",
+                            widget = wibox.widget.separator,
+                        },
+                        top = 5,
+                        bottom = 5,
+                        widget = wibox.container.margin,
+                    },
+                    {
+                        {
+                            widget = create_tasklist_widget(s),
+                        },
+                        width = 15,
+                        strategy = "min",
+                        widget = wibox.container.constraint,
+                    },
                     layout = wibox.layout.fixed.horizontal,
                 },
                 top = 0, 
                 bottom = 0,
                 left = 7,
-                right = 7,
+                right = 10,
                 widget = wibox.container.margin,
             },
             shape = function(cr, width, height)
@@ -84,7 +103,15 @@ awful.screen.connect_for_each_screen(function(s)
                 layout = wibox.layout.fixed.horizontal,
             },
             nil,
-            create_layout_widget(s),
+            {
+                wibox.widget.textbox("wifi"),
+                wibox.widget.textbox("sound"),
+                --wibox.widget.textbox(awful.widget.watch(acpi, 1)),
+                wibox.widget.textbox(" "),
+                battery_widget_container,
+                create_layout_widget(s),
+                layout = wibox.layout.fixed.horizontal,
+            },
         },
         mytextclock,
     }
