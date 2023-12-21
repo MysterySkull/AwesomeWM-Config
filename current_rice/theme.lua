@@ -168,6 +168,23 @@ theme.layout_cornerne = themes_path.."layouts/cornernew.png"
 theme.layout_cornersw = themes_path.."layouts/cornersww.png"
 theme.layout_cornerse = themes_path.."layouts/cornersew.png"
 
+theme.layout_fairh = gears.color.recolor_image(theme.layout_fairh, color.text)
+theme.layout_fairv = gears.color.recolor_image(theme.layout_fairv, color.text)
+theme.layout_floating  = gears.color.recolor_image(theme.layout_floating, color.text)
+theme.layout_magnifier = gears.color.recolor_image(theme.layout_magnifier, color.text)
+theme.layout_max = gears.color.recolor_image(theme.layout_max, color.text)
+theme.layout_fullscreen = gears.color.recolor_image(theme.layout_fullscreen, color.text)
+theme.layout_tilebottom = gears.color.recolor_image(theme.layout_tilebottom, color.text)
+theme.layout_tileleft   = gears.color.recolor_image(theme.layout_tileleft, color.text)
+theme.layout_tile = gears.color.recolor_image(theme.layout_tile, color.text)
+theme.layout_tiletop = gears.color.recolor_image(theme.layout_tiletop, color.text)
+theme.layout_spiral  = gears.color.recolor_image(theme.layout_spiral, color.text)
+theme.layout_dwindle = gears.color.recolor_image(theme.layout_dwindle, color.text)
+theme.layout_cornernw = gears.color.recolor_image(theme.layout_cornernw, color.text)
+theme.layout_cornerne = gears.color.recolor_image(theme.layout_cornerne, color.text)
+theme.layout_cornersw = gears.color.recolor_image(theme.layout_cornersw, color.text)
+theme.layout_cornerse = gears.color.recolor_image(theme.layout_corners, color.text)
+
 -- Generate Awesome icon:
 theme.awesome_icon = theme_assets.awesome_icon(
     theme.menu_height, theme.bg_focus, theme.fg_focus

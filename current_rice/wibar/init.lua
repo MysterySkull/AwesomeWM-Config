@@ -106,14 +106,32 @@ awful.screen.connect_for_each_screen(function(s)
             },
             nil,
             {
-                internet_widget_container,
-                wibox.widget.textbox(" "),
-                sound_widget_container,
-                --wibox.widget.textbox(awful.widget.watch(acpi, 1)),
-                wibox.widget.textbox(" "),
-                battery_widget_container,
-                create_layout_widget(s),
-                layout = wibox.layout.fixed.horizontal,
+                {
+                    internet_widget_container,
+                    wibox.widget.textbox(" "),
+                    sound_widget_container,
+                    --wibox.widget.textbox(awful.widget.watch(acpi, 1)),
+                    wibox.widget.textbox(" "),
+                    battery_widget_container,
+                    {
+                        top = 5,
+                        bottom = 5,
+                        widget = wibox.container.margin{
+                            widget = wibox.widget.separator{
+                                color = color.text,
+                                forced_width = 10,
+                                orientation = "vertical",
+                            },
+                        },
+                    },
+                    create_layout_widget(),
+                    layout = wibox.layout.fixed.horizontal,
+                },
+                shape = function(cr, width, height)
+                    gears.shape.rounded_rect(cr, width, height, 15)
+                end,
+                bg = color.crust,
+                widget = wibox.container.background,
             },
         },
         mytextclock,
