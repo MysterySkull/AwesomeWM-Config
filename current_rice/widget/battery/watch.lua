@@ -8,8 +8,8 @@ awful.widget.watch(".config/awesome/current_rice/widget/battery/script/battery_s
 		set_battery_data(stdout)
 
 		set_battery_icon()
-		set_battery_color()
+		--set_battery_color()
 
-		widget:set_text(stdout)
+		--widget:set_text(stdout)
 	end,
 	battery_widget_container)

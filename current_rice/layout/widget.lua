@@ -17,10 +17,10 @@ function create_layout_widget()
                 right = 5,
                 widget = wibox.container.margin,
             },
-            halign = "left",
+            halign = "center",
             widget = wibox.container.place,
         },
-        forced_width = 40,
+        forced_width = 30,
         widget = wibox.container.background,
     }
 

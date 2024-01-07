@@ -13,10 +13,11 @@ local spacer = wibox.widget{
 }
 
 sound_widget.icon  = wibox.widget{
-	font = "Font Awesome 6 Free-Solid 900 23",
+	font = "Font Awesome 6 Free-Solid 900 18",
 	markup = "<span>" .. icons.volume_high .. "</span>",
 	widget = wibox.widget.textbox,
-    forced_width = 30
+    halign = "center",
+    forced_width = 30,
 }
 sound_widget.percent = wibox.widget{
 	text = "ERROR",

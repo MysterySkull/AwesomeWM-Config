@@ -12,11 +12,11 @@ local spacer = wibox.widget{
 }
 
 internet_widget.icon = wibox.widget{
-	font = "JetBrains Mono Nerd Font 24",
+	font = "JetBrains Mono Nerd Font 18",
 	text = icons.no_connection,
-	--markup = "<span>" ..icons.no_connection .. "</span>",
 	widget = wibox.widget.textbox,
-	forced_width = 25,
+    halign = "center",
+	forced_width = 30,
 }
 
 internet_widget.textbox = wibox.widget {

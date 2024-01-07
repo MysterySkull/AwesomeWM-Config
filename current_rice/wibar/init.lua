@@ -80,6 +80,14 @@ end
 awful.screen.connect_for_each_screen(function(s)
 
     s.mypromptbox = awful.widget.prompt()
+
+    prompt_box_container = wibox.container.background{
+        shape = function(cr, width, height)
+            gears.shape.rounded_rect(cr, width, height, 15)
+        end, 
+        bg= color.crust,
+        widget = s.mypromptbox,
+    }
     -- Create the wibox
     s.mywibox = awful.wibar({ 
         position = "top", 
@@ -100,36 +108,47 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Right and left widget
             layout = wibox.layout.align.horizontal,
             {
-                create_tag_task_widget(s),
-                s.mypromptbox,
-                layout = wibox.layout.fixed.horizontal,
+                {
+                    create_tag_task_widget(s),
+                    prompt_box_container,
+                    layout = wibox.layout.fixed.horizontal,
+                },
+                width = s.workarea.width / 2 - 110,
+                widget = wibox.container.constraint,
             },
             nil,
             {
                 {
-                    internet_widget_container,
-                    wibox.widget.textbox(" "),
-                    sound_widget_container,
-                    --wibox.widget.textbox(awful.widget.watch(acpi, 1)),
-                    wibox.widget.textbox(" "),
-                    battery_widget_container,
                     {
-                        top = 5,
-                        bottom = 5,
-                        widget = wibox.container.margin{
-                            widget = wibox.widget.separator{
-                                color = color.text,
-                                forced_width = 10,
-                                orientation = "vertical",
+                        {
+                            internet_widget_container,
+                            sound_widget_container,
+                            battery_widget_container,
+                            layout = wibox.layout.fixed.horizontal,
+                        },
+                        margins = 5,
+                        widget = wibox.container.margin,
+                        {
+                            top = 5,
+                            bottom = 5,
+                            widget = wibox.container.margin{
+                                widget = wibox.widget.separator{
+                                    color = color.text,
+                                    forced_width = 10,
+                                    orientation = "vertical",
+                                },
                             },
                         },
+                        create_layout_widget(),
+                        layout = wibox.layout.fixed.horizontal,
                     },
-                    create_layout_widget(),
-                    layout = wibox.layout.fixed.horizontal,
+                    halign = "center",
+                    widget = wibox.container.place,
                 },
                 shape = function(cr, width, height)
                     gears.shape.rounded_rect(cr, width, height, 15)
                 end,
+                forced_width = 150,
                 bg = color.crust,
                 widget = wibox.container.background,
             },
